@@ -101,22 +101,26 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">    
-  
-    shareButton.addEventListener('click', event => {
-    if (navigator.share) {
-        navigator.share({
-        title: 'WebShare API Demo',
-        url: 'https://codepen.io/ayoisaiah/pen/YbNazJ'
-        }).then(() => {
-        console.log('Thanks for sharing!');
-        })
-        .catch(console.error);
-    } else {
-        shareDialog.classList.add('is-open');
-    }
-    });
-           
+    <script>
+        var shareButton = document.getElementById("shareButton");
+
+        shareButton.addEventListener("click", function() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Tosscar 공유하기',
+                    text: 'Tosscar 혜택을 공유합니다.',
+                    url: window.location.href
+                })
+                .then(function() {
+                    console.log('공유 완료');
+                })
+                .catch(function(error) {
+                    console.error('공유 실패:', error);
+                });
+            } else {
+                alert("Web Share API를 지원하지 않는 환경입니다.");
+            }
+        });
     </script>
 </body>
 </html>
