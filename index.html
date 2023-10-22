@@ -8,10 +8,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500&display=swap" rel="stylesheet">
-
-
     <title>Tosscar</title>
 </head>
+<script type="text/javascript">    
+  
+    var btnShare = document.getElementById("btnShare");
+        btnShare.addEventListener("click", function(){
+       
+      var shareTitle = "공유하기 기능 테스트";
+       var shareText = '공유하기 기능 입니다.';
+       var contentURL = "/share/shareUrl";
+       var URLPreFix = "";
+       
+       URLPreFix = URLPreFix + "//" + location.host;
+       
+       var shareURL = URLPreFix + contentURL;
+       
+       if (navigator.share){
+             navigator.share({
+                 title: shareTitle,
+                 text: shareText,
+                 url: shareURL,
+             })
+           .then(() => console.log('Successful share'))
+           .catch((error) => console.log('Error sharing', error));
+       }else{
+           alert("공유하기를 지원하지 않는 환경입니다.");
+       }
+   });
+       
+</script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Noto+Sans+KR:wght@600;700&display=swap');
   </style>
@@ -83,11 +109,17 @@
                     </div>
                 </div>
             </div>
-            <div class="share" style="display: flex; margin-top: 15px;">
+            <div class="share" style="display: flex; margin-top: 15px;" id="btnShare">
                 <div class="logo" style="background-color: white;margin-top: 20px;position: relative;top: -12px;">
                     <img src="img/share.png" alt=""style="width: 41px;position: relative;bottom: -10px;right: -9px;"> 
                 </div>
                 <div><h3 style="margin-top: 25px;font-size: 18px;margin-left: 15px;">친구에게 혜택 공유하기</h3></div>
+            </div>
+            <div class="share" style="display: flex; margin-top: 15px;">
+                <div class="logo" style="background-color: #F7F7F7;margin-top: 20px;position: relative;top: -12px;">
+                    <img src="img/check.png" alt=""style="width: 35px;position: relative;bottom: -13px;right: -13px;"> 
+                </div>
+                <div><h3 style="margin-top: 25px;font-size: 18px;margin-left: 15px;">운전자 보험</h3></div>
             </div>
             <div class="info">
             <p>안내사항</p>
