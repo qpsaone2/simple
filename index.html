@@ -101,43 +101,33 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
+    <script type="text/javascript">    
+  
         var btnShare = document.getElementById("btnShare");
-        btnShare.addEventListener("click", function() {
-            var shareTitle = "공유하기 기능 테스트";
-            var shareText = '공유하기 기능 입니다.';
-            var contentURL = "/share/shareUrl";
-            var URLPreFix = "";
-    
-            URLPreFix = URLPreFix + "//" + location.host;
-    
-            var shareURL = URLPreFix + contentURL;
-    
-            if (navigator.share) {
-                navigator.share({
-                    title: shareTitle,
-                    text: shareText,
-                    url: shareURL,
-                })
-                .then(() => console.log('Successful share'))
-                .catch((error) => console.log('Error sharing', error));
-            } else {
-                // "navigator.share" API를 지원하지 않는 경우, 대체 기능을 사용
-                // 대체 기능 예: 공유 URL을 클립보드에 복사하는 등의 작업 수행
-                copyToClipboard(shareURL); // 이 부분은 대체 기능으로 수정해야 합니다.
-            }
-        });
-    
-        // 대체 기능: 텍스트를 클립보드에 복사하는 함수
-        function copyToClipboard(text) {
-            var tempInput = document.createElement("input");
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-            alert("URL이 클립보드에 복사되었습니다: " + text);
-        }
+            btnShare.addEventListener("click", function(){
+           
+          var shareTitle = "공유하기 기능 테스트";
+           var shareText = '공유하기 기능 입니다.';
+           var contentURL = "/share/shareUrl";
+           var URLPreFix = "";
+           
+           URLPreFix = URLPreFix + "//" + location.host;
+           
+           var shareURL = URLPreFix + contentURL;
+           
+           if (navigator.share){
+                 navigator.share({
+                     title: shareTitle,
+                     text: shareText,
+                     url: shareURL,
+                 })
+               .then(() => console.log('Successful share'))
+               .catch((error) => console.log('Error sharing', error));
+           }else{
+               alert("공유하기를 지원하지 않는 환경입니다.");
+           }
+       });
+           
     </script>
 </body>
 </html>
