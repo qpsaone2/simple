@@ -83,3 +83,13 @@ body {
     right: 10px;
     cursor: pointer;
 }
+
+@media only screen and (min-width: 768px) {
+    /* 화면 너비가 768px 이상인 경우 (일반적인 컴퓨터 화면 크기)에 콘텐츠를 숨깁니다. */
+    body {
+        display: none;
+    }
+    .desktop-message {
+        display: block;
+    }
+}
