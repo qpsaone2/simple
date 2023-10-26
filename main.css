@@ -47,3 +47,39 @@ body {
     margin-left: 5px;
     font-size: 12px;
 }
+
+/* 모달 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    opacity: 0; /* 초기에 투명 상태로 시작 */
+    transition: opacity 0.5s; /* 투명도 전환에 대한 애니메이션 지정 */
+}
+
+.modal.show {
+    display: block;
+    opacity: 1; /* 투명도 1로 변경하여 나타남 */
+}
+
+.modal-content {
+    background-color: #fff;
+    width: 60%;
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
