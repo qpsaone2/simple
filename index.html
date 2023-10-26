@@ -146,9 +146,6 @@
         <p style="color: #808080; font-size: small; margin-left: 30px; margin-bottom: 0px;">대표이사: 최순연 / 사업자번호 : 874-87-02337</p>
         <p style="color: #808080; font-size: small; margin-left: 30px; margin-top: 3px;">#1104, 28, Seojeon-ro 10beon-gil, Busanjin-gu, Busan (Bujeon-dong)</p>
     </footer>
-    <p class="desktop-message" style="text-align: center; font-size: 24px; padding: 20px;">
-        이 웹 사이트는 모바일 장치에서만 접근할 수 있습니다. 모바일 장치에서 방문해 주세요.
-    </p>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         var shareButton = document.getElementById("shareButton");
@@ -202,7 +199,7 @@
             }, 500); // 0.5초 후 모달 숨김
         }
     });
-    if (window.innerWidth >= 768) {
+    if (window.innerWidth >= 1200) {
             // 화면 너비가 768px 이상이면 다른 페이지로 리디렉션합니다.
             alert("모바일 환경에서만 접속가능합니다.")
             window.location.href = 'https://your-desktop-site-url.com';
